@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { deleteContact } from "../../redux/contacts/contactsActions";
 
-function ContasctsListItem({ id, name, number, removeContact }) {
+function ContasctsListItem({ id, name, number }) {
   const dispatch = useDispatch();
 
   return (
