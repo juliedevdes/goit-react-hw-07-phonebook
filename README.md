@@ -1,6 +1,6 @@
-# React Course 7-th homework ʕ •ᴥ•ʔ ゝ ☆
+# React Course 7-th homework ʕ ノ•ᴥ•ʔ ノ ︵ ┻━┻
 
-𓏲 𓏲 Redux 𓏲 ʕ╯• ⊱ •╰ʔ 𓏲 async Redux
+𓏲 𓏲 async Redux 𓏲 (=ʘᆽʘ=) 𓏲 making createAsyncThunks and headaches 𓏲 𓏲
 
 ## 𓏧 𓏲 𓏲 𓏲 [TASK](https://github.com/goitacademy/react-homework/tree/master/homework-07) 𓏲 𓏲 𓏲 𓏧
 
