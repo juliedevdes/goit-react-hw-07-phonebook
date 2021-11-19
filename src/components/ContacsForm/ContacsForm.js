@@ -1,17 +1,16 @@
 import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import s from "./ContactForm.module.css";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { submit } from "../../redux/contacts/contactsActions";
+import { postContact } from "../../redux/contacts/contactsOperations";
 
 function ContacsForm() {
   const [name, setName] = useState("");
   const [number, setNum] = useState("");
-  const [id, setId] = useState(uuidv4());
 
   const dispatch = useDispatch();
+  const contacts = useSelector((store) => store.contacts.entities);
 
   const handleInputChange = (e) => {
     const { name, value } = e.currentTarget;
@@ -29,12 +28,22 @@ function ContacsForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(submit({ name, number, id }));
+
+    if (contacts.some((el) => el.name === name)) {
+      alert("There is already contact with the same name");
+      return;
+    }
+
+    dispatch(
+      postContact({
+        name,
+        number,
+      })
+    );
     reset();
   };
 
   const reset = () => {
-    setId(uuidv4());
     setNum("");
     setName("");
   };

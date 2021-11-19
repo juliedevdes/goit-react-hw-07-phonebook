@@ -4,7 +4,7 @@ import s from "./ContactsList.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
-import { fetchContacts } from "../../redux/contacts/contactsOperation";
+import { fetchContacts } from "../../redux/contacts/contactsOperations";
 
 function ContasctsList() {
   const getVisibleContacts = (contacts, filter) => {

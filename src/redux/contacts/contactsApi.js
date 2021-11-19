@@ -8,8 +8,8 @@ export async function fetchContacts() {
   return data;
 }
 
-export async function postContact({ id, name, number }) {
-  const { data } = await axios.post("contacts", { name, number, id });
+export async function postContact({ name, number }) {
+  const { data } = await axios.post("contacts", { name, number });
   return data;
 }
 
