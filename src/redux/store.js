@@ -1,5 +1,6 @@
 import { configureStore, createReducer } from "@reduxjs/toolkit";
-import { handleFilter, deleteContact, submit } from "./actions";
+import { handleFilter } from "./actions";
+import { deleteContact, submit } from "./contacts/contactsActions";
 
 const filterReducer = createReducer("", {
   [handleFilter]: (_, { payload }) => `${payload}`,
@@ -11,29 +12,26 @@ const contactsReducer = createReducer([], {
       alert("There is already contact with the same name");
       return state;
     }
-    window.localStorage.setItem(
-      "contacts",
-      JSON.stringify([...state, payload])
-    );
+
+    // window.localStorage.setItem// PUT
+
     return [...state, payload];
   },
   [deleteContact]: (state, { payload }) => {
     const clearedContacts = state.filter((contact) => contact.id !== payload);
-    window.localStorage.setItem("contacts", JSON.stringify(clearedContacts));
+
+    // window.localStorage.setItem //DElETE
+
     return clearedContacts;
   },
 });
-
-const storageContacts = {
-  contacts: JSON.parse(localStorage.getItem("contacts")) || [],
-};
 
 const store = configureStore({
   reducer: {
     filter: filterReducer,
     contacts: contactsReducer,
   },
-  preloadedState: storageContacts,
+  // preloadedState: storageContacts, //state.contacts
   devTools: process.env.NODE_ENV === "development",
 });
 
